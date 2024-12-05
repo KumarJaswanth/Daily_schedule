@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Daily Success Schedule</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(90deg, #ff5733, #c70039);
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            border-bottom: 4px solid #900c3f;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #121212;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+        .schedule-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1e1e1e;
+            border-radius: 10px;
+            margin: 15px 0;
+            padding: 15px 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 5px solid #ff5733;
+        }
+        .schedule-block:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(255, 87, 51, 0.5);
+        }
+        .schedule-block input[type="checkbox"] {
+            accent-color: #ff5733;
+            transform: scale(1.3);
+            margin-right: 15px;
+        }
+        .time {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #ff5733;
+        }
+        .task {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px 10px;
+            background: linear-gradient(90deg, #c70039, #ff5733);
+            color: white;
+            margin-top: 20px;
+            border-top: 4px solid #900c3f;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        .streak-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .streak-container p {
+            font-size: 1.2em;
+            margin: 10px;
+        }
+        .increment-button {
+            padding: 10px 20px;
+            background-color: #ff5733;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .reset-button {
+            padding: 10px 20px;
+            background-color: #c70039;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Enhanced Daily Schedule</h1>
+        <p>Plan. Execute. Succeed.</p>
+    </header>
+    <div class="container">
+        <!-- Task List -->
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task1">
+            <label class="task" for="task1"><span class="time">5:30 AM</span> Wake up, hydrate, and meditate.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task2">
+            <label class="task" for="task2"><span class="time">5:40 AM</span> Morning exercise for 20-30 minutes.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task3">
+            <label class="task" for="task3"><span class="time">6:15 AM</span> Reflect, journal, and plan priorities.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task4">
+            <label class="task" for="task4"><span class="time">6:30 AM</span> Learn something new (reading or podcast).</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task5">
+            <label class="task" for="task5"><span class="time">7:15 AM</span> Breakfast and prepare for the day.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task6">
+            <label class="task" for="task6"><span class="time">8:00 AM</span> Start work/study (focus on MIT with Pomodoro).</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task7">
+            <label class="task" for="task7"><span class="time">12:30 PM</span> Lunch and relaxation.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task8">
+            <label class="task" for="task8"><span class="time">1:30 PM</span> Continue work or study (secondary tasks).</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task9">
+            <label class="task" for="task9"><span class="time">3:30 PM</span> Short mental recharge break.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task10">
+            <label class="task" for="task10"><span class="time">4:00 PM</span> Passion project or creative time.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task11">
+            <label class="task" for="task11"><span class="time">6:00 PM</span> Light activity or socialize.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task12">
+            <label class="task" for="task12"><span class="time">7:00 PM</span> Dinner and reflection.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task13">
+            <label class="task" for="task13"><span class="time">8:00 PM</span> Self-development (reading or learning).</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task14">
+            <label class="task" for="task14"><span class="time">9:30 PM</span> Disconnect and plan for tomorrow.</label>
+        </div>
+        <div class="schedule-block" onclick="toggleCheckbox(this)">
+            <input type="checkbox" id="task15">
+            <label class="task" for="task15"><span class="time">10:00 PM</span> Sleep (7-8 hours).</label>
+        </div>
+
+        <button class="reset-button" onclick="resetTasks()">Reset All</button>
+
+        <!-- Streak Display -->
+        <div class="streak-container">
+            <p>Current Streak: <span id="streak">0</span> days</p>
+            <p>Best Streak: <span id="bestStreak">0</span> days</p>
+            <button class="increment-button" onclick="incrementStreak()">Increment Streak</button>
+        </div>
+    </div>
+    <footer>
+        <p>Small steps lead to big victories. Stay focused!</p>
+    </footer>
+
+    <script>
+        // Initialize variables
+        let currentStreak = 0;
+        let bestStreak = localStorage.getItem('bestStreak') ? parseInt(localStorage.getItem('bestStreak')) : 0;
+        const streakSpan = document.getElementById('streak');
+        const bestStreakSpan = document.getElementById('bestStreak');
+
+        // Update streaks
+        function updateStreak() {
+            streakSpan.textContent = currentStreak;
+            bestStreakSpan.textContent = bestStreak;
+            if (currentStreak > bestStreak) {
+                bestStreak = currentStreak;
+                localStorage.setItem('bestStreak', bestStreak);
+            }
+        }
+
+        function incrementStreak() {
+            currentStreak++;
+            updateStreak();
+        }
+
+        function toggleCheckbox(scheduleBlock) {
+            const checkbox = scheduleBlock.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            updateStreak();
+        }
+
+        function resetTasks() {
+            currentStreak = 0;
+            document.querySelectorAll('.schedule-block input').forEach((checkbox) => checkbox.checked = false);
+            updateStreak();
+        }
+
+        // Initialize the best streak on page load
+        window.onload = () => {
+            updateStreak();
+        };
+    </script>
+</body>
+</html>
